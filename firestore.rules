@@ -1,0 +1,82 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Function to check if user is logged in
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Function to check if the user is accessing their own data
+    function isOwner(uid) {
+      return isAuthenticated() && request.auth.uid == uid;
+    }
+
+    // Function to check if user is admin
+    // Assuming custom claims or a specific 'role' field. Here using a mock role check.
+    function isAdmin() {
+      return isAuthenticated() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // USERS COLLECTION
+    match /users/{userId} {
+      // Users can read their own profile, admins can read all
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // Users can create their profile but cannot set themselves as admin or alter coins directly
+      allow create: if isOwner(userId) 
+                    && request.resource.data.role != 'admin' 
+                    && request.resource.data.coins == 0;
+                    
+      // Prevent direct modification of coins to prevent fraud. Coins should be updated via Cloud Functions.
+      // For development, we might allow it, but for production it should be locked.
+      allow update: if isOwner(userId) 
+                    && request.resource.data.diff(resource.data).affectedKeys()
+                        .hasOnly(['name', 'upi', 'device_id']);
+                        
+      allow delete: if isAdmin();
+    }
+
+    // DEVICES COLLECTION (1-Account per device locking)
+    match /devices/{deviceId} {
+      // Anyone can read (to check if locked during login)
+      allow read: if true;
+      // Only allow creation if it doesn't exist (locking the device permanently)
+      allow create: if isAuthenticated() && !exists(/databases/$(database)/documents/devices/$(deviceId));
+      // Devices cannot be updated or deleted except by admins
+      allow update, delete: if isAdmin();
+    }
+
+    // WITHDRAWALS COLLECTION
+    match /withdrawals/{withdrawalId} {
+      // Users can read their own withdrawals
+      allow read: if isAuthenticated() && (resource.data.uid == request.auth.uid || isAdmin());
+      // Only Cloud Functions or Admin should create/update to ensure coins are properly deducted
+      // Users are not allowed to write directly to prevent fake requests
+      allow write: if isAdmin();
+    }
+
+    // PRODUCTS COLLECTION
+    match /products/{productId} {
+      // Anyone can read active products
+      allow read: if true;
+      // Only admins can modify products
+      allow write: if isAdmin();
+    }
+
+    // TICKETS COLLECTION
+    match /tickets/{ticketId} {
+      allow read: if isAuthenticated() && (resource.data.uid == request.auth.uid || isAdmin());
+      // Users can create a ticket entry if they don't exceed daily limit
+      // (This logic should ideally be backed by Cloud Functions for strict security)
+      allow create: if isAuthenticated() && request.resource.data.uid == request.auth.uid;
+      allow update: if isAdmin();
+    }
+
+    // NOTIFICATIONS COLLECTION
+    match /notifications/{notificationId} {
+      allow read: if isAuthenticated() && (resource.data.uid == request.auth.uid || isAdmin());
+      allow write: if isAdmin();
+    }
+  }
+}

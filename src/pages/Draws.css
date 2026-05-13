@@ -1,0 +1,88 @@
+.draws-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.draw-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--accent-green);
+}
+
+.draw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.draw-header h4 {
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+.draw-date-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: #F3F4F6;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.winner-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.winner-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-info-green);
+  color: var(--accent-green);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.winner-details {
+  flex: 1;
+}
+
+.winner-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.winner-phone {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.reward-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.reward-status.claimed {
+  background: var(--bg-info-green);
+  color: #166534;
+}
+
+.reward-status.processing {
+  background: var(--bg-info-orange);
+  color: var(--accent-orange);
+}

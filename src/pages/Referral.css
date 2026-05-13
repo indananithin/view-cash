@@ -1,0 +1,139 @@
+.referral-hero-card {
+  background: var(--primary-gradient);
+  border-radius: var(--border-radius-lg);
+  padding: 32px 20px;
+  text-align: center;
+  color: white;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.hero-icon {
+  margin-bottom: 16px;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.referral-hero-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.referral-hero-card p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+}
+
+.referral-code-section {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.code-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.code-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #F3F4F6;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-md);
+  border: 1px dashed #D1D5DB;
+}
+
+.code {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: 2px;
+}
+
+.btn-copy {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  color: var(--primary-orange);
+}
+
+.btn-share {
+  width: 100%;
+  background: var(--text-main);
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.referral-stats h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-icon-ref {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-info-orange);
+  color: var(--primary-orange);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.stat-icon-ref.coin-bg {
+  background: var(--bg-info-green);
+  color: var(--accent-green);
+}
+
+.stat-content h4 {
+  font-size: 18px;
+  color: var(--text-main);
+}
+
+.stat-content p {
+  font-size: 12px;
+  color: var(--text-muted);
+}

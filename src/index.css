@@ -1,0 +1,103 @@
+/* CSS Reset and Global Variables */
+:root {
+  /* Brand Colors */
+  --primary-yellow: #F7C04A; /* Soft yellow */
+  --primary-orange: #F39F5A; /* Soft orange */
+  --primary-gradient: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-orange) 100%);
+  
+  /* Background & Surface Colors */
+  --bg-light: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-card-yellow: #FFF9E6; /* Very light yellow for product cards */
+  --bg-info-green: #E8F5E9;
+  --bg-info-orange: #FFF3E0;
+
+  /* Text Colors */
+  --text-main: #1A1A1A;
+  --text-muted: #6B7280;
+  --text-light: #9CA3AF;
+  
+  /* Accents */
+  --accent-green: #4ADE80;
+  --accent-orange: #FB923C;
+  --accent-red: #F87171;
+
+  /* Layout */
+  --border-radius-sm: 8px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 32px;
+  --padding-page: 16px;
+  --bottom-nav-height: 64px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-card: 0 10px 30px rgba(247, 192, 74, 0.15); /* Yellow tinted shadow */
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mobile App Wrapper to simulate Android look on Web */
+#root {
+  min-height: 100vh;
+  max-width: 480px; /* Limit width to mobile size */
+  margin: 0 auto;
+  background-color: var(--bg-light);
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 0 40px rgba(0,0,0,0.05); /* Soft shadow on desktop */
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-muted);
+}
+
+/* Base Link */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utilities */
+.page-container {
+  padding: var(--padding-page);
+  padding-bottom: calc(var(--bottom-nav-height) + 20px); /* Leave room for nav */
+  min-height: 100vh;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

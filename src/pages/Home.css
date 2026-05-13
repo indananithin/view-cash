@@ -1,0 +1,221 @@
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.greeting {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2px;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.icon-btn {
+  background: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-main);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+.badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: var(--accent-red);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Balance Card */
+.balance-card {
+  background: var(--primary-gradient);
+  border-radius: var(--border-radius-xl);
+  padding: 24px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-card::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+}
+
+.balance-info p {
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.balance-info h2 {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.coin-icon {
+  color: #FFF;
+}
+
+.balance-info small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.redeem-btn {
+  background: white;
+  color: var(--primary-orange);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.action-box {
+  background: var(--bg-card);
+  padding: 20px 16px;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.action-box:active {
+  transform: translateY(2px);
+}
+
+.action-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  margin: 0 auto 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gift-bg { background: var(--bg-info-orange); }
+.trophy-bg { background: var(--bg-info-green); }
+
+.action-box h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.action-box p {
+  font-size: 12px;
+}
+
+/* Announcements */
+.section-title {
+  margin-bottom: 16px;
+}
+
+.section-title h3 {
+  font-size: 18px;
+}
+
+.announcement-card {
+  background: var(--bg-card);
+  padding: 16px;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 12px;
+  border-left: 4px solid var(--primary-yellow);
+  box-shadow: var(--shadow-sm);
+}
+
+.announcement-card.success {
+  border-left-color: var(--accent-green);
+}
+
+.announcement-content h4 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.announcement-content p {
+  font-size: 13px;
+  line-height: 1.4;
+}
