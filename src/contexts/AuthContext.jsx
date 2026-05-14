@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
     // Mock check for existing session
     const checkAuth = async () => {
       try {
-        const storedUser = localStorage.getItem('viewWinUser');
+        const storedUser = localStorage.getItem('viewCashUser');
         if (storedUser) {
           setUser(JSON.parse(storedUser));
         }
@@ -31,17 +31,18 @@ export const AuthProvider = ({ children }) => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       const mockUser = {
         uid: 'user_' + Date.now(),
-        name: 'Guest User',
+        name: phoneOrEmail === '9999999999' ? 'Admin User' : 'Guest User',
         phone: phoneOrEmail,
         coins: 120,
-        deviceId: localStorage.getItem('viewWinDeviceId') || generateDeviceId()
+        deviceId: localStorage.getItem('viewCashDeviceId') || generateDeviceId(),
+        isAdmin: phoneOrEmail === '9999999999'
       };
-      
+
       setUser(mockUser);
-      localStorage.setItem('viewWinUser', JSON.stringify(mockUser));
+      localStorage.setItem('viewCashUser', JSON.stringify(mockUser));
       return { success: true };
     } catch (error) {
       return { success: false, error: error.message };
@@ -52,12 +53,12 @@ export const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('viewWinUser');
+    localStorage.removeItem('viewCashUser');
   };
 
   const generateDeviceId = () => {
     const id = 'dev_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('viewWinDeviceId', id);
+    localStorage.setItem('viewCashDeviceId', id);
     return id;
   };
 

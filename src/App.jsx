@@ -26,6 +26,22 @@ const ProtectedRoute = ({ children }) => {
   return children;
 };
 
+const AdminRoute = ({ children }) => {
+  const { user, loading } = useAuth();
+  
+  if (loading) return null;
+  
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
+  
+  if (!user.isAdmin) {
+    return <Navigate to="/" replace />; // Redirect non-admins to home
+  }
+  
+  return children;
+};
+
 function App() {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -54,7 +70,7 @@ function App() {
             <Route path="draws" element={<Draws />} />
             <Route path="wallet" element={<Wallet />} />
             <Route path="profile" element={<Profile />} />
-            <Route path="admin" element={<AdminDashboard />} />
+            <Route path="admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
             <Route path="notifications" element={<Notifications />} />
             <Route path="referral" element={<Referral />} />
             <Route path="settings" element={<Settings />} />

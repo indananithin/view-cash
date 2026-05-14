@@ -10,10 +10,10 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 // Generate or retrieve a persistent device ID using localStorage
 export const getDeviceId = () => {
-  let deviceId = localStorage.getItem('viewWinDeviceId');
+  let deviceId = localStorage.getItem('viewCashDeviceId');
   if (!deviceId) {
     deviceId = 'dev_' + Math.random().toString(36).substr(2, 9) + Date.now();
-    localStorage.setItem('viewWinDeviceId', deviceId);
+    localStorage.setItem('viewCashDeviceId', deviceId);
   }
   return deviceId;
 };

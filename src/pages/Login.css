@@ -11,19 +11,15 @@
   margin-bottom: 40px;
 }
 
-.login-logo {
-  font-size: 48px;
-  font-weight: 800;
-  width: 80px;
-  height: 80px;
-  background: var(--primary-gradient);
-  color: white;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.logo-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 18px;
+  display: block;
   margin: 0 auto 16px;
   box-shadow: var(--shadow-md);
+  object-fit: cover;
+  background: white;
 }
 
 .login-header h2 {

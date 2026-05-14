@@ -16,9 +16,9 @@ const Referral = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Join ViewWin',
-          text: `Use my referral code ${referralCode} to get 50 bonus coins on ViewWin!`,
-          url: 'https://viewwin.app',
+          title: 'Join ViewCash',
+          text: `Use my referral code ${referralCode} to get 50 bonus coins on ViewCash!`,
+          url: 'https://viewcash.app',
         });
       } catch (err) {
         console.log('Error sharing', err);

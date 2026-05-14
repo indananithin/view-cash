@@ -38,10 +38,12 @@ const Profile = () => {
             <div className="menu-icon"><Settings size={20} /></div>
             <span>Settings</span>
           </div>
-          <div className="menu-item" onClick={() => navigate('/admin')}>
-            <div className="menu-icon"><ShieldAlert size={20} /></div>
-            <span>Admin Panel</span>
-          </div>
+          {user?.isAdmin && (
+            <div className="menu-item" onClick={() => navigate('/admin')}>
+              <div className="menu-icon"><ShieldAlert size={20} /></div>
+              <span>Admin Panel</span>
+            </div>
+          )}
           <div className="menu-item">
             <div className="menu-icon"><HelpCircle size={20} /></div>
             <span>Help & Support</span>

@@ -45,8 +45,8 @@ const Login = () => {
   return (
     <div className="login-container page-container">
       <div className="login-header">
-        <div className="login-logo">V</div>
-        <h2>Welcome to ViewWin</h2>
+        <img src="/logo.png" alt="ViewCash Logo" className="logo-image" />
+        <h2>Welcome to ViewCash</h2>
         <p>Login to start earning rewards</p>
       </div>
 

@@ -93,7 +93,7 @@ const AdminDashboard = () => {
     <div className="admin-page page-container">
       <header className="admin-header">
         <h2>Admin Panel</h2>
-        <p>Manage ViewWin platform</p>
+        <p>Manage ViewCash platform</p>
       </header>
 
       <div className="admin-tabs">

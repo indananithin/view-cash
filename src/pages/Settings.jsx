@@ -74,7 +74,7 @@ const Settings = () => {
           <LogOut size={20} />
           Logout from App
         </button>
-        <p className="app-version">ViewWin v1.0.0</p>
+        <p className="app-version">ViewCash v1.0.0</p>
       </div>
     </div>
   );

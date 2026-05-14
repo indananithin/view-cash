@@ -1,6 +1,6 @@
 {
   "name": "functions",
-  "description": "Cloud Functions for ViewWin",
+  "description": "Cloud Functions for ViewCash",
   "scripts": {
     "serve": "firebase emulators:start --only functions",
     "shell": "firebase functions:shell",
